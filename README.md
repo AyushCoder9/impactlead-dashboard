@@ -79,7 +79,7 @@ flowchart LR
     AUTH --> DB
     PROXY -.redirect if no session.-> AD
 
-    CRON[Vercel Cron\nevery 30 min] --> RESET[/api/demo/reset/]
+    CRON[Vercel Cron\ndaily] --> RESET[/api/demo/reset/]
     RESET --> DB
 ```
 
@@ -283,7 +283,7 @@ This is one Next.js app — frontend, API routes, and Server Actions all deploy 
    npm run db:seed
    ```
 
-8. **Verify from a fresh/incognito browser**: landing page loads, form submits, `/admin` requires login, `/demo` works with zero login. The demo-reset cron (`vercel.json`) is already wired to run every 30 minutes against `/api/demo/reset` automatically once deployed.
+8. **Verify from a fresh/incognito browser**: landing page loads, form submits, `/admin` requires login, `/demo` works with zero login. The demo-reset cron (`vercel.json`) is already wired to run daily against `/api/demo/reset` automatically once deployed — Vercel's Hobby plan only allows once-per-day cron schedules, so daily is the ceiling on the free tier (Pro unlocks arbitrary schedules if you ever need faster resets).
 
 ## 🧪 Testing
 
