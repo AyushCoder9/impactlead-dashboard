@@ -19,8 +19,13 @@ function createAuth() {
       disableSignUp: true,
     },
     session: {
-      expiresIn: 60 * 60 * 24 * 7, // 7 days
-      updateAge: 60 * 60 * 24, // sliding refresh once/day
+      // 400 days — not a hosting-tier limit (Neon/Vercel/Upstash free
+      // tiers don't cap session length, that's entirely our own config),
+      // it's the actual ceiling: Chrome and the Set-Cookie spec hard-cap
+      // cookie Max-Age at 400 days since 2023, so this is as long as it
+      // gets, local or hosted, same either way.
+      expiresIn: 60 * 60 * 24 * 400,
+      updateAge: 60 * 60 * 24 * 7, // sliding refresh once/week on activity
       cookieCache: {
         enabled: true,
         maxAge: 60 * 5,
