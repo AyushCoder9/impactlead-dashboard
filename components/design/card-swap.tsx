@@ -18,9 +18,9 @@ import { cn } from "@/lib/utils";
 /**
  * Stacked cards that auto-cycle with GSAP, front card dropping away and the
  * stack promoting behind it. Adapted from superdesign.dev's "Card Swap"
- * (real production source pulled during research — see CLAUDE.md). Used
- * here to cycle through real product screenshots rather than the original's
- * stock photography.
+ * (real production source pulled during research). Used here to cycle
+ * through real product screenshots rather than the original's stock
+ * photography.
  */
 export interface CardSwapCardProps extends React.HTMLAttributes<HTMLDivElement> {
   customClass?: string;

@@ -1,8 +1,7 @@
 import localFont from "next/font/local";
 
 // Self-hosted (Fontshare, free for commercial use — license copies kept in
-// public/fonts/LICENSE/). Never a runtime CDN dependency. See CLAUDE.md
-// design-system section for the palette/type spec these implement.
+// public/fonts/LICENSE/). Never a runtime CDN dependency.
 export const clashDisplay = localFont({
   src: [
     { path: "../public/fonts/clash-display/ClashDisplay-Medium.woff2", weight: "500", style: "normal" },

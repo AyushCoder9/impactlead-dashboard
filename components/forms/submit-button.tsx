@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 /**
  * Letter-by-letter text swap between idle/loading labels ("Send message" ->
  * "Sending"), concept adapted from superdesign.dev's "Button loading state"
- * (real prompt, see CLAUDE.md).
+ * (real prompt).
  */
 export function SubmitButton({
   loading,

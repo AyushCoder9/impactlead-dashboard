@@ -7,7 +7,7 @@ import { motion, useSpring, useTransform, type MotionValue } from "motion/react"
  * Odometer-style rolling digit counter. Adapted from superdesign.dev's
  * "Counter" (RollingCounter) UI component — real production source pulled
  * during research, re-implemented here trimmed to what LeadDesk's stat
- * tiles need. See CLAUDE.md.
+ * tiles need.
  */
 function Digit({ mv, height }: { mv: MotionValue<number>; height: number }) {
   return (

@@ -1,7 +1,6 @@
 // Schema for better-auth's core tables. Shape matches what better-auth's
 // Drizzle adapter expects for the email/password + session plugins.
-// Kept separate from schema.ts (our own domain tables) by convention —
-// see CLAUDE.md.
+// Kept separate from schema.ts (our own domain tables) by convention.
 import { pgTable, text, timestamp, boolean } from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {

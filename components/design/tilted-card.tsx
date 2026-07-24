@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 
 /**
  * 3D parallax tilt-on-hover card, adapted from superdesign.dev's "Tilted
- * Card" (real production source pulled during research — see CLAUDE.md).
- * Trimmed from the image-showcase original to a generic content card for
- * LeadDesk's feature grid.
+ * Card" (real production source pulled during research). Trimmed from the
+ * image-showcase original to a generic content card for LeadDesk's feature
+ * grid.
  */
 export function TiltedCard({
   children,

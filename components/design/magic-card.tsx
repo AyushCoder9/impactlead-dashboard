@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 
 /**
  * Spotlight + border-glow + tilt card, adapted from superdesign.dev's
- * "Bento" (MagicBento — real production source pulled during research, see
- * CLAUDE.md). Original is dark-themed with purple particle effects; reskinned
+ * "Bento" (MagicBento — real production source pulled during research).
+ * Original is dark-themed with purple particle effects; reskinned
  * to the flat monochrome palette and particles dropped (too loud for the
  * Swiss/brutalist restraint), keeping spotlight/glow/tilt which read as
  * "premium" without breaking the aesthetic.

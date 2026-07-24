@@ -2,7 +2,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import { getDemoLeads } from "@/lib/db/queries/leads";
 
 // Public, no-login endpoint — deliberately scoped to is_demo=true only via
-// getDemoLeads(). See CLAUDE.md "Demo isolation is structural".
+// getDemoLeads(). Demo isolation is structural, not conventional: this is
+// the only route that reads demo data, and it never touches a session.
 export async function GET(request: NextRequest) {
   const url = new URL(request.url);
   const search = url.searchParams.get("search") ?? undefined;

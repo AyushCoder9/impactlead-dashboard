@@ -63,8 +63,7 @@ function CommandDialog({
             CommandInput/List/Group/Item all read from a store that only
             <Command> provides. Without it: "Cannot read properties of
             undefined (reading 'subscribe')". The shadcn "radix"/nova
-            preset generator omitted this wrapper — a real bug caught live,
-            not a hypothetical. See CLAUDE.md. */}
+            preset generator omitted this wrapper. */}
         <Command className="[&_[data-slot=command-input-wrapper]]:h-12">
           {children}
         </Command>

@@ -33,7 +33,7 @@ export default function AdminLoginPage() {
     setLoading(false);
     if (signInError) {
       // Deliberately generic — never confirm whether the email exists, to
-      // avoid user enumeration. See CLAUDE.md / plan file.
+      // avoid user enumeration.
       setError("Invalid email or password.");
       return;
     }

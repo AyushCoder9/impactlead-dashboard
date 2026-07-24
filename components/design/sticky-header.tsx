@@ -10,7 +10,7 @@ import { ThemeToggle } from "@/components/design/theme-toggle";
 /**
  * "Shrinking Sticky Header" — shrinks height ~20% and transitions to a
  * blurred glassmorphism background after 100px of scroll. Researched from
- * superdesign.dev's UI Component library (real prompt — see CLAUDE.md).
+ * superdesign.dev's UI Component library (real prompt).
  */
 export function StickyHeader() {
   const [scrolled, setScrolled] = useState(false);

@@ -2,8 +2,8 @@ import type { NewLead } from "@/lib/db/schema";
 import { scoreLead } from "@/lib/spam/score";
 
 // Synthetic demo leads only — clearly fictional, never presented as real
-// customer data anywhere in the UI (see CLAUDE.md: no fabricated social
-// proof). Used to seed the public, no-login /demo sandbox.
+// customer data anywhere in the UI. Used to seed the public, no-login
+// /demo sandbox.
 const RAW_DEMO_LEADS: Array<
   Pick<NewLead, "name" | "email" | "budgetRange" | "message" | "status">
 > = [

@@ -15,7 +15,7 @@ export type LeadStatus = (typeof STATUSES)[number]["value"];
  * Flat monochrome segmented control for the New/Contacted/Closed toggle.
  * Concept carried over from superdesign.dev's "Luminous Switch" (on/off
  * state-transition idea) but NOT its ornate skeuomorphic CSS — that clashes
- * with the flat Swiss/brutalist aesthetic. See CLAUDE.md.
+ * with the flat Swiss/brutalist aesthetic.
  */
 export function StatusSwitch({
   value,

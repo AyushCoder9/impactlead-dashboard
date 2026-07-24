@@ -18,7 +18,6 @@ type Schema = typeof fullSchema;
 // Lazy singleton: never call Pool()/drizzle() at module top level, and never
 // wrap this in a Proxy — both break either `next build` (before env vars
 // exist) or better-auth's Drizzle adapter (silent hang, no thrown error).
-// See CLAUDE.md / plan file for why.
 let dbInstance: NeonDatabase<Schema> | undefined;
 
 export function getDb(): NeonDatabase<Schema> {

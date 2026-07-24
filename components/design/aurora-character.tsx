@@ -6,8 +6,8 @@ import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 /**
  * Floating minimal aurora-glow character head — adapted from
  * superdesign.dev's "Interactive virtual character" (real prompt pulled
- * during research, see CLAUDE.md). That entry is an image-generation
- * prompt, not a code component, so this is an original CSS/SVG
+ * during research). That entry is an image-generation prompt, not a
+ * code component, so this is an original CSS/SVG
  * implementation built to match its description: a diffused glowing
  * aurora sphere (cyan/violet/blue) with foggy edges, a calm geometric
  * white-line face (high curved eyebrows, dot eyes, "L" nose), floating

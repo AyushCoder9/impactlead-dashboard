@@ -6,8 +6,7 @@ import { cn } from "@/lib/utils";
 /**
  * "Character Staggered Fade" — each character starts at 50% opacity, 5px
  * blur, and sharpens into focus with a 0.02s stagger. Researched from
- * superdesign.dev's Animation library (real prompt, not guessed — see
- * CLAUDE.md).
+ * superdesign.dev's Animation library (real prompt, not guessed).
  */
 export function StaggeredFade({
   children,
@@ -28,8 +27,7 @@ export function StaggeredFade({
           aria-label above stops assistive tech from announcing this letter
           by letter (a real bug caught by the Playwright e2e test: a button
           using this same per-character pattern computed an accessible name
-          of "S e n d m e s s a g e" instead of "Send message"). See
-          CLAUDE.md. */}
+          of "S e n d m e s s a g e" instead of "Send message"). */}
       <span aria-hidden="true">
         {characters.map((char, i) => (
           <motion.span

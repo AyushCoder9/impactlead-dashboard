@@ -6,7 +6,7 @@ import { getSessionCookie } from "better-auth/cookies";
 // authorization boundary: every Server Action and Route Handler under
 // /admin re-verifies the real session server-side regardless of what
 // happens here (see app/actions/leads.ts, app/api/leads/*). Next.js 16
-// renamed middleware.ts to proxy.ts — see CLAUDE.md.
+// renamed middleware.ts to proxy.ts.
 export function proxy(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith("/admin/login")) {
     return NextResponse.next();

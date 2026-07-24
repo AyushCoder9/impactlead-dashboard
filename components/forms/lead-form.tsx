@@ -18,9 +18,8 @@ type Step = 1 | 2;
 /**
  * Two-step lead capture form: contact info, then project details. Step
  * transitions are a trimmed adaptation of superdesign.dev's "Animated
- * Stepper" (real production source pulled during research — see
- * CLAUDE.md), not a full generic wizard component, since this form only
- * ever has two steps.
+ * Stepper" (real production source pulled during research), not a full
+ * generic wizard component, since this form only ever has two steps.
  */
 export function LeadForm() {
   const renderedAt = useRef(Date.now());

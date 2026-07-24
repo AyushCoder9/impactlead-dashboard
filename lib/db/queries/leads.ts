@@ -6,7 +6,7 @@ import { DUPLICATE_WINDOW_MS } from "@/lib/spam/duplicate";
 // This is the ONLY file allowed to build raw queries against `leads` /
 // `lead_status_history` — every other module goes through these exported
 // functions. This is what keeps real vs. demo data isolated by construction
-// rather than by convention. See CLAUDE.md.
+// rather than by convention.
 
 export type LeadFilters = {
   search?: string;
