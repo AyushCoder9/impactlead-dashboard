@@ -20,8 +20,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](./LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/AyushCoder9/impactlead-dashboard/ci.yml?style=flat-square&label=CI)](../../actions)
 
-**[Live site](#) · [Live demo — no login](#) · [Admin login](#)**
-_(links filled in after deploy — see [Deployment](#-deployment))_
+**[Live site](https://impactlead-xx-app.vercel.app/) · [Live demo — no login](https://impactlead-xx-app.vercel.app/demo) · [Admin login](https://impactlead-xx-app.vercel.app/admin/login)**
 
 </div>
 
@@ -31,9 +30,9 @@ _(links filled in after deploy — see [Deployment](#-deployment))_
 
 LeadDesk is a lead capture platform built to real production standards, not a scoped-down demo. It covers the full loop end to end: a validated public form, a real database, an admin view with search and status management, real authentication, and a deployment — plus a transparent lead-scoring engine, a full audit trail on every status change, layered spam defense, and a public sandbox anyone can try without an account.
 
-Every design decision — including the ones that look flashy — traces back to a real, checkable source: the visual system is adapted from researched design patterns (see [Design system](#-design-system--credits)), and every claim in this README about what works has actually been run against a live Postgres database, not assumed.
+Every design decision — including the ones that look flashy — traces back to a real, checkable source: the visual system is adapted from researched design patterns (see [Design system](#design-system--credits)), and every claim in this README about what works has actually been run against a live Postgres database, not assumed.
 
-## ✨ Features
+## Features
 
 **Public side**
 - Two-step lead capture form (contact details → project details) with inline validation
@@ -46,7 +45,7 @@ Every design decision — including the ones that look flashy — traces back to
 - Searchable, filterable, sortable leads table with a segmented New / Contacted / Closed status control
 - Full audit trail: every status change is logged with who, when, and what it changed from/to
 - Live-ish dashboard (10s polling) with animated stat counters and a leads-over-time chart
-- ⌘K command palette for fast navigation and actions
+- Command palette (Cmd/Ctrl+K) for fast navigation and actions
 - One-click CSV export, hardened against formula-injection
 - Dark mode
 
@@ -57,7 +56,7 @@ Every design decision — including the ones that look flashy — traces back to
 - CSV export sanitized against formula injection
 - One-way IP hashing — raw IPs are never stored
 
-## 🏗 Architecture
+## Architecture
 
 ```mermaid
 flowchart LR
@@ -83,7 +82,7 @@ flowchart LR
     RESET --> DB
 ```
 
-## 🗃 Data model
+## Data model
 
 ```mermaid
 erDiagram
@@ -132,7 +131,7 @@ Full column-by-column rationale is in [`lib/db/schema.ts`](./lib/db/schema.ts) a
 
 **Demo isolation is structural, not a convention.** `is_demo` lives on the same `leads` table (so `/demo` can reuse the exact real admin components), but every raw query is confined to one file — [`lib/db/queries/leads.ts`](./lib/db/queries/leads.ts) — via explicit `getRealLeads()` / `getDemoLeads()` wrappers. Demo mutations run through a separate Server Action file ([`app/actions/demo.ts`](./app/actions/demo.ts)) that hard-codes `is_demo = true` on every write, and `/demo` never touches a better-auth session at all.
 
-## 🔐 Auth flow
+## Auth flow
 
 ```mermaid
 sequenceDiagram
@@ -166,7 +165,7 @@ curl -X POST https://your-deploy.vercel.app/api/auth/sign-up/email \
 
 The one admin account is created only by [`drizzle/seed.ts`](./drizzle/seed.ts).
 
-## 📸 Screenshots
+## Screenshots
 
 <table>
 <tr>
@@ -175,7 +174,7 @@ The one admin account is created only by [`drizzle/seed.ts`](./drizzle/seed.ts).
 </tr>
 </table>
 
-## 🧰 Tech stack
+## Tech stack
 
 | Layer | Choice | Why |
 |---|---|---|
@@ -195,11 +194,11 @@ The one admin account is created only by [`drizzle/seed.ts`](./drizzle/seed.ts).
 | CI | GitHub Actions | Lint, typecheck, test on every push |
 | Hosting | Vercel | |
 
-## 🎨 Design system & credits
+## Design system & credits
 
 The visual system — Swiss-style monochrome palette and the stacked "echo" headline effect — plus several individual animations and components are adapted from real, individually-researched design patterns rather than a generic template, including a spotlight/tilt/glow bento grid (`components/design/magic-card.tsx`) and a GSAP stacked-card cycler (`components/design/card-swap.tsx`), both re-themed from their dark/purple originals to this project's flat monochrome palette and displaying this project's own real screenshots.
 
-## 🚀 Getting started locally
+## Getting started locally
 
 ```bash
 git clone https://github.com/AyushCoder9/impactlead-dashboard.git
@@ -217,10 +216,10 @@ Open [http://localhost:3000](http://localhost:3000). Admin login at `/admin/logi
 
 | Variable | Required | Where it comes from |
 |---|:---:|---|
-| `DATABASE_URL` | ✅ | Neon Postgres connection string (Vercel Marketplace → Neon, or [neon.tech](https://neon.tech) directly) |
-| `BETTER_AUTH_SECRET` | ✅ | Any high-entropy random string — `node -e "console.log(require('crypto').randomBytes(32).toString('base64url'))"` |
-| `BETTER_AUTH_URL` | ✅ | Your app's own URL, e.g. `http://localhost:3000` or `https://your-app.vercel.app` |
-| `NEXT_PUBLIC_APP_URL` | ✅ | Same as above |
+| `DATABASE_URL` | required | Neon Postgres connection string (Vercel Marketplace → Neon, or [neon.tech](https://neon.tech) directly) |
+| `BETTER_AUTH_SECRET` | required | Any high-entropy random string — `node -e "console.log(require('crypto').randomBytes(32).toString('base64url'))"` |
+| `BETTER_AUTH_URL` | required | Your app's own URL, e.g. `http://localhost:3000` or `https://your-app.vercel.app` |
+| `NEXT_PUBLIC_APP_URL` | required | Same as above |
 | `SEED_ADMIN_EMAIL` | for seeding | Any email — this becomes the one admin login |
 | `SEED_ADMIN_PASSWORD` | for seeding | Any strong password |
 | `KV_REST_API_URL` / `KV_REST_API_TOKEN` | recommended | Upstash Redis (Vercel Marketplace → Upstash; a standalone Upstash account instead uses `UPSTASH_REDIS_REST_URL`/`_TOKEN`, both names are supported) — rate limiting silently no-ops without these, so the app still runs without them |
@@ -230,7 +229,7 @@ Open [http://localhost:3000](http://localhost:3000). Admin login at `/admin/logi
 
 Full list with inline comments in [`.env.example`](./.env.example).
 
-## ☁️ Deployment (Vercel)
+## Deployment (Vercel)
 
 This is one Next.js app — frontend, API routes, and Server Actions all deploy together as a single unit. No separate backend deploy step.
 
@@ -285,7 +284,7 @@ This is one Next.js app — frontend, API routes, and Server Actions all deploy 
 
 8. **Verify from a fresh/incognito browser**: landing page loads, form submits, `/admin` requires login, `/demo` works with zero login. The demo-reset cron (`vercel.json`) is already wired to run daily against `/api/demo/reset` automatically once deployed — Vercel's Hobby plan only allows once-per-day cron schedules, so daily is the ceiling on the free tier (Pro unlocks arbitrary schedules if you ever need faster resets).
 
-## 🧪 Testing
+## Testing
 
 ```bash
 npm test          # Vitest — validation schemas, lead scoring, spam heuristics
@@ -294,7 +293,7 @@ npm run test:e2e  # Playwright — full happy path: submit → login → search 
 
 The e2e test needs `SEED_ADMIN_EMAIL`/`SEED_ADMIN_PASSWORD` set and a real database seeded — it's not mocked, it runs the actual flow end-to-end. CI (`.github/workflows/ci.yml`) runs lint, typecheck, and the unit suite on every push.
 
-## 📁 Project structure
+## Project structure
 
 ```
 app/
@@ -322,17 +321,17 @@ drizzle/                     migrations + seed script
 tests/                       unit (Vitest) + e2e (Playwright)
 ```
 
-## 🤖 AI usage
+## AI usage
 
 <!-- TODO: one paragraph on where AI was used in building this and what was changed/verified afterward, per the brief's rules. -->
 
-## 📝 Assumptions
+## Assumptions
 
 - Email+password admin auth rather than OAuth/SSO — satisfies "not a hardcoded string, sessions/tokens handled properly" without a third-party dependency an evaluator would need to configure.
 - 10-second polling rather than websockets for "live" admin updates — a deliberate reliability trade-off on a serverless free tier, documented as a choice, not a gap.
 - Turnstile is optional/progressive so the repo runs for an evaluator with zero extra API keys beyond a database.
 - No public sign-up for admin accounts by design — the one admin account is seeded, matching a real "internal tool" access model.
 
-## 📄 License
+## License
 
 MIT — see [`LICENSE`](./LICENSE).
