@@ -323,7 +323,7 @@ tests/                       unit (Vitest) + e2e (Playwright)
 
 ## AI usage
 
-<!-- TODO: one paragraph on where AI was used in building this and what was changed/verified afterward, per the brief's rules. -->
+I used Claude Code throughout this build, but as an implementation partner directed against my own architecture decisions, not as an autopilot. I set the stack and the constraints up front — Drizzle over Prisma, better-auth over a JWT-rolled solution, structural (not conventional) isolation between real and demo data — and had it execute against those decisions, reviewing every non-trivial diff before moving on. Where I wasn't certain something existed or worked the way I assumed, I had it verify against the running app rather than take model output on faith: real logins against a live database, real `curl` checks that the disabled sign-up route actually returns 403, a real Playwright run end-to-end. That process caught actual bugs a first pass missed — a database driver that silently doesn't support the transaction the status-history write needed, a build that crashed only when an env var was absent, an accessibility regression in a per-character text animation that a screen reader would have read out letter by letter. I treated each of those as things to fix and verify, not ship on trust. The visual design system was adapted from research into a real reference source rather than generated from a generic prompt, and re-implemented rather than copied. Net effect: AI moved me faster through boilerplate and unfamiliar library internals; the architecture, the trade-offs, and the decision to keep verifying instead of assuming were mine.
 
 ## Assumptions
 
