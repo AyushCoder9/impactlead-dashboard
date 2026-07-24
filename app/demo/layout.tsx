@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SiteFooter } from "@/components/design/site-footer";
 import { ThemeToggle } from "@/components/design/theme-toggle";
+import { Logo } from "@/components/design/logo";
 
 export default function DemoLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +13,8 @@ export default function DemoLayout({ children }: { children: React.ReactNode }) 
         </Link>
       </div>
       <header className="flex items-center justify-between px-6 py-4">
-        <Link href="/" className="font-heading text-lg font-bold tracking-tight">
+        <Link href="/" className="flex items-center gap-2 font-heading text-lg font-bold tracking-tight">
+          <Logo className="size-6" />
           LeadDesk <span className="text-muted-foreground">/ demo</span>
         </Link>
         <div className="flex items-center gap-3">

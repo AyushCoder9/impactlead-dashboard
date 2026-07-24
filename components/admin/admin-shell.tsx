@@ -7,6 +7,7 @@ import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { CommandPalette } from "@/components/admin/command-palette";
 import { ThemeToggle } from "@/components/design/theme-toggle";
+import { Logo } from "@/components/design/logo";
 
 export function AdminShell({
   children,
@@ -27,7 +28,8 @@ export function AdminShell({
     <div className="flex min-h-screen flex-col bg-background">
       <CommandPalette />
       <header className="flex items-center justify-between border-b border-border px-6 py-4">
-        <Link href="/admin" className="font-heading text-lg font-bold tracking-tight">
+        <Link href="/admin" className="flex items-center gap-2 font-heading text-lg font-bold tracking-tight">
+          <Logo className="size-6" />
           LeadDesk <span className="text-muted-foreground">/ admin</span>
         </Link>
         <div className="flex items-center gap-4 text-sm text-muted-foreground">

@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SubmitButton } from "@/components/forms/submit-button";
 import { EchoHeadline } from "@/components/design/echo-headline";
+import { Logo } from "@/components/design/logo";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -43,7 +44,8 @@ export default function AdminLoginPage() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6">
-      <div className="mb-10">
+      <div className="mb-10 flex flex-col items-center gap-3">
+        <Logo className="size-10" />
         <EchoHeadline as="h1" className="font-heading text-4xl font-bold tracking-tight">
           LeadDesk
         </EchoHeadline>

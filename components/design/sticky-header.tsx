@@ -6,6 +6,7 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/design/theme-toggle";
+import { Logo } from "@/components/design/logo";
 
 /**
  * "Shrinking Sticky Header" — shrinks height ~20% and transitions to a
@@ -31,7 +32,8 @@ export function StickyHeader() {
           : "h-[4.5rem] border-b border-transparent bg-transparent",
       )}
     >
-      <Link href="/" className="font-heading text-lg font-bold tracking-tight">
+      <Link href="/" className="flex items-center gap-2 font-heading text-lg font-bold tracking-tight">
+        <Logo className="size-6" />
         LeadDesk
       </Link>
       <nav className="hidden items-center gap-8 text-sm font-medium sm:flex">
