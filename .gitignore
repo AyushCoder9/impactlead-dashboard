@@ -46,3 +46,6 @@ next-env.d.ts
 
 # local-only agent instructions, not published to the repo
 /CLAUDE.md
+
+# personal submission prep, not part of the product
+/WALKTHROUGH_SCRIPT.md
