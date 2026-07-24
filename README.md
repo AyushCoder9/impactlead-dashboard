@@ -1,6 +1,9 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1200&color=111111&center=true&vCenter=true&width=600&lines=Capture+every+lead.+Miss+nothing.;Real+auth.+Real+database.+Real+audit+trail.;Built+like+a+product%2C+not+a+demo." alt="LeadDesk tagline" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1200&color=F2F2F2&center=true&vCenter=true&width=600&lines=Capture+every+lead.+Miss+nothing.;Real+auth.+Real+database.+Real+audit+trail.;Built+like+a+product%2C+not+a+demo." />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1200&color=111111&center=true&vCenter=true&width=600&lines=Capture+every+lead.+Miss+nothing.;Real+auth.+Real+database.+Real+audit+trail.;Built+like+a+product%2C+not+a+demo." alt="LeadDesk tagline" />
+</picture>
 
 # LeadDesk
 
@@ -26,7 +29,7 @@ _(links filled in after deploy — see [Deployment](#-deployment))_
 
 ## What this is
 
-LeadDesk is the submission for Digital Heroes' **Full Stack Development** internship task, built deliberately well beyond the brief's own 5–7 hour estimate. The brief asked for a lead form, a database, an admin view with search and a status toggle, real auth, and a deployment. This does all of that — plus a transparent lead-scoring engine, a full audit trail on every status change, layered spam defense, and a public sandbox anyone can try without an account.
+LeadDesk is a lead capture platform built to real production standards, not a scoped-down demo. It covers the full loop end to end: a validated public form, a real database, an admin view with search and status management, real authentication, and a deployment — plus a transparent lead-scoring engine, a full audit trail on every status change, layered spam defense, and a public sandbox anyone can try without an account.
 
 Every design decision — including the ones that look flashy — traces back to a real, checkable source: the visual system is adapted from researched design patterns (see [Design system](#-design-system--credits)), and every claim in this README about what works has actually been run against a live Postgres database, not assumed.
 
@@ -333,9 +336,3 @@ tests/                       unit (Vitest) + e2e (Playwright)
 ## 📄 License
 
 MIT — see [`LICENSE`](./LICENSE).
-
----
-
-<div align="center">
-<sub>Built for <a href="https://digitalheroesco.com">Digital Heroes Training Task</a></sub>
-</div>
