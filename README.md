@@ -180,7 +180,7 @@ The one admin account is created only by [`drizzle/seed.ts`](./drizzle/seed.ts).
 | Language | TypeScript (strict) | |
 | Styling | Tailwind CSS v4 + shadcn/ui | Re-skinned to a Swiss/brutalist token set, not default shadcn look |
 | Database | Neon Postgres | Serverless Postgres, Vercel-native via Marketplace |
-| ORM | Drizzle (`neon-serverless`, WebSocket) | `neon-http` doesn't support transactions — needed for atomic status+history writes; found this the hard way, see [`CLAUDE.md`](./CLAUDE.md) |
+| ORM | Drizzle (`neon-serverless`, WebSocket) | `neon-http` doesn't support transactions — needed for the atomic status+history write in `lib/db/queries/leads.ts` |
 | Auth | better-auth | Real DB-backed, revocable sessions — not a JWT-only credentials hack |
 | Validation | Zod + React Hook Form | Shared schema, independently enforced client and server |
 | Rate limiting | Upstash Redis (`@upstash/ratelimit`) | Sliding window, IP+email scoped |
@@ -194,7 +194,7 @@ The one admin account is created only by [`drizzle/seed.ts`](./drizzle/seed.ts).
 
 ## 🎨 Design system & credits
 
-The visual system — Swiss-style monochrome palette, the stacked "echo" headline effect, and several individual animations/components — is adapted from real, individually-researched patterns rather than a generic template. Every pattern used is documented with what it actually is and how it was adapted (not copy-pasted) in [`CLAUDE.md`](./CLAUDE.md#animation--component-research--rule-for-this-repo), including the two components with full production source behind them: a spotlight/tilt/glow bento grid and a GSAP stacked-card cycler, both re-themed from dark/purple to the flat monochrome palette and now displaying this project's own real screenshots.
+The visual system — Swiss-style monochrome palette and the stacked "echo" headline effect — plus several individual animations and components are adapted from real, individually-researched design patterns rather than a generic template, including a spotlight/tilt/glow bento grid (`components/design/magic-card.tsx`) and a GSAP stacked-card cycler (`components/design/card-swap.tsx`), both re-themed from their dark/purple originals to this project's flat monochrome palette and displaying this project's own real screenshots.
 
 ## 🚀 Getting started locally
 
