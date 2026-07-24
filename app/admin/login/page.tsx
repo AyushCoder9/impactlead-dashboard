@@ -44,12 +44,12 @@ export default function AdminLoginPage() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6">
-      <div className="mb-10 flex flex-col items-center gap-3">
+      <Link href="/" className="mb-10 flex flex-col items-center gap-3">
         <Logo className="size-10" />
         <EchoHeadline as="h1" className="font-heading text-4xl font-bold tracking-tight">
           LeadDesk
         </EchoHeadline>
-      </div>
+      </Link>
       <form
         onSubmit={onSubmit}
         noValidate

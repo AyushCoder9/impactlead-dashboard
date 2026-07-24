@@ -28,7 +28,7 @@ export function AdminShell({
     <div className="flex min-h-screen flex-col bg-background">
       <CommandPalette />
       <header className="flex items-center justify-between border-b border-border px-6 py-4">
-        <Link href="/admin" className="flex items-center gap-2 font-heading text-lg font-bold tracking-tight">
+        <Link href="/" className="flex items-center gap-2 font-heading text-lg font-bold tracking-tight">
           <Logo className="size-6" />
           LeadDesk <span className="text-muted-foreground">/ admin</span>
         </Link>
